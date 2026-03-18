@@ -2,4 +2,12 @@
     "name": "nFAVs",
     "symbol":"n",
     "data_url":"https://script.google.com/macros/s/AKfycbykyeS1hlT2C6t9K0xirxuRH5cwtoEe1Fw2VD4aIVvASvhedaUSJ46wPd8Wmoup4QfuIA/exec"
+    "level_order" : [u0,u1,u2,u3,u4,u5,u6,u7,u8,u9,u10,u11,u12,
+                     U0,U1,U2,U3,U4,U5,U6,U7,U8,U9,U10,U11,U12,
+                     g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,g10,g11,g12,
+                     G0,G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,G11,G12,
+                     p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,
+                     P0,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,
+                     g0,g1,g2,g3,g4,g5,g6,g7,g8,g9,g10,g11,g12,
+                     G0,G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,G11,G12]
 }
