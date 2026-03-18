@@ -34,8 +34,7 @@
         </div>
 
 
-        <!--ここから難易度表本体-->
-        <div>
+        <div class="table-responsive">
             <table class="table table-light table-striped table-hover" id="table_int">
             </table>
         </div>
@@ -55,13 +54,14 @@
                 var obj = $("#table_int");
 
                 obj.html("");
-                $("<thead class='table-dark'><tr><th>Level</th><th>Title</th><th>Artist</th><th>Comment</th></tr></thead><tbody>")
+                $("<thead class='table-dark'><tr><th>Level</th><th>Title</th><th>Artist</th><th>Links</th><th>Comment</th></tr></thead><tbody>")
                     .appendTo(obj);
                 var obj_sep = null;
                 for (var i = 0; i < info.length; i++) {
                     if (x != info[i].level) {
                         if (obj_sep != null) {
-                            obj_sep.html("<td colspan='4'>" + "<b>" + mark + x + " (" + count +
+                            // colspanを5に変更
+                            obj_sep.html("<td colspan='5'>" + "<b>" + mark + x + " (" + count +
                                 "譜面)</b></td>");
                         }
                         obj_sep = $("<tr class='table-dark' style='text-align:center' id='" + mark + info[i].level +
@@ -77,13 +77,25 @@
                     $("<td width='5%'>" + mark + x + "</td>").appendTo(str);
 
                     // Title
-                    $("<td width='45%'>" +
+                    $("<td width='35%'>" +
                         "<a href='http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=ranking&bmsmd5=" + info[
                             i]
                         .md5 + "' target='_blank'>" + info[i].title + "</a></td>").appendTo(str);
 
                     // Artist
-                    $("<td width='40%'>" + info[i].artist + "</td>").appendTo(str);
+                    $("<td width='25%'>" + info[i].artist + "</td>").appendTo(str);
+
+                    // Links (追加部分)
+                    var linkHtml = "<td width='25%'>";
+                    if (info[i].url) {
+                        linkHtml += "<a href='" + info[i].url + "' target='_blank'>[本体]</a> ";
+                    }
+                    if (info[i].url_diff) {
+                        linkHtml += "<a href='" + info[i].url_diff + "' target='_blank'>[差分]</a> ";
+                    }
+                    linkHtml += "<a href='https://bms-score-viewer.pages.dev/view?md5=" + info[i].md5 + "' target='_blank'>[Viewer]</a>";
+                    linkHtml += "</td>";
+                    $(linkHtml).appendTo(str);
 
                     // Comment
                     $("<td width='10%'>" + info[i].comment + "</td>").appendTo(str);
@@ -94,7 +106,8 @@
                 $("</tbody>").appendTo(obj);
 
                 if (obj_sep != null) {
-                    obj_sep.html("<td class='table-dark' style='text-align:center' colspan='4'>" + "<b>" + mark + x +
+                    // colspanを5に変更
+                    obj_sep.html("<td class='table-dark' style='text-align:center' colspan='5'>" + "<b>" + mark + x +
                         " (" + count + "譜面)</b></td>");
                 }
             }
